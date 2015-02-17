@@ -109,6 +109,22 @@ class user extends tsApp{
 			exit;
 		}
 	}
+
+    //是否登录
+    public function checkLogin(){
+
+        $userid = intval($_SESSION['tsuser']['userid']);
+
+        if($userid>0){
+            if($this->isUser($userid)){
+                return $userid;
+            }else{
+                return 0;
+            }
+        }else{
+            return 0;
+        }
+    }
 	
 	public function getOneArea($areaid){
 	
